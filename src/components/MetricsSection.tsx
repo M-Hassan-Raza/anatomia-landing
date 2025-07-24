@@ -102,7 +102,7 @@ const MetricsSection = () => {
 
         {/* Bottom Section */}
         <div className="animate-on-scroll mt-16 text-center">
-          <Card className="inline-block p-8 bg-gradient-primary text-primary-foreground">
+          <Card className="inline-block p-8 gradient-primary text-primary-foreground">
             <div className="space-y-4">
               <h3 className="font-display text-heading-lg">
                 Ready to See These Results in Your Organization?

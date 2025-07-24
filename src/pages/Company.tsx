@@ -71,50 +71,34 @@ const Company = () => {
 
   const team = [
     {
-      name: 'Dr. Sarah Chen',
-      role: 'CEO & Co-Founder',
-      background: 'Emergency Medicine Physician, Harvard Medical School',
-      experience: '15+ years in emergency medicine',
+      name: 'Shaheer Khawaja',
+      role: 'CEO',
+      background: 'Visionary leader driving healthcare innovation through AI technology',
+      experience: 'Strategic healthcare AI implementation',
       image: '/api/placeholder/300/300',
       linkedin: '#'
     },
     {
-      name: 'Michael Rodriguez',
-      role: 'CTO & Co-Founder',
-      background: 'Former Principal Engineer at Google Health, Stanford CS',
-      experience: '12+ years in healthcare AI',
+      name: 'Hussain Arslan',
+      role: 'CTO',
+      background: 'Technology architect building scalable healthcare AI solutions',
+      experience: 'Healthcare technology infrastructure',
       image: '/api/placeholder/300/300',
       linkedin: '#'
     },
     {
-      name: 'Dr. James Park',
-      role: 'Chief Medical Officer',
-      background: 'Former Director of Clinical Informatics, Mayo Clinic',
-      experience: '18+ years in clinical informatics',
+      name: 'Hania Akhlaq',
+      role: 'COO',
+      background: 'Operations expert optimizing healthcare workflow automation',
+      experience: 'Healthcare operations and process optimization',
       image: '/api/placeholder/300/300',
       linkedin: '#'
     },
     {
-      name: 'Lisa Thompson',
-      role: 'VP of Engineering',
-      background: 'Former Lead AI Researcher at Microsoft Healthcare',
-      experience: '10+ years in AI/ML',
-      image: '/api/placeholder/300/300',
-      linkedin: '#'
-    },
-    {
-      name: 'David Kim',
-      role: 'VP of Sales',
-      background: 'Former VP Sales at Epic Systems',
-      experience: '14+ years in healthcare sales',
-      image: '/api/placeholder/300/300',
-      linkedin: '#'
-    },
-    {
-      name: 'Rachel Martinez',
-      role: 'VP of Product',
-      background: 'Former Senior PM at Verily (Google)',
-      experience: '11+ years in product management',
+      name: 'Muhammad Hassan Raza',
+      role: 'CPO',
+      background: 'Product strategist designing intuitive healthcare AI experiences',
+      experience: 'Healthcare product development and user experience',
       image: '/api/placeholder/300/300',
       linkedin: '#'
     }
@@ -282,26 +266,26 @@ const Company = () => {
               </p>
             </div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
               {team.map((member, index) => (
-                <Card key={member.name} className="p-6 feature-card text-center hover:shadow-lg transition-all duration-300 group">
-                  <div className="w-24 h-24 bg-anatomia-surface-tertiary rounded-full mx-auto mb-4 overflow-hidden">
+                <Card key={member.name} className="p-4 feature-card text-center hover:shadow-lg transition-all duration-300 group">
+                  <div className="w-20 h-20 bg-anatomia-surface-tertiary rounded-full mx-auto mb-3 overflow-hidden">
                     <div className="w-full h-full bg-gradient-primary opacity-20"></div>
                   </div>
-                  <h3 className="font-display text-lg font-semibold text-foreground mb-1">
+                  <h3 className="font-display text-base font-semibold text-foreground mb-1">
                     {member.name}
                   </h3>
-                  <div className="text-primary font-medium mb-2">
+                  <div className="text-primary font-medium text-sm mb-2">
                     {member.role}
                   </div>
-                  <p className="text-sm text-anatomia-text-secondary mb-2">
+                  <p className="text-xs text-anatomia-text-secondary mb-2 line-clamp-2">
                     {member.background}
                   </p>
-                  <p className="text-xs text-anatomia-text-tertiary mb-4">
+                  <p className="text-xs text-anatomia-text-tertiary mb-3">
                     {member.experience}
                   </p>
-                  <Button variant="ghost" size="sm" className="opacity-0 group-hover:opacity-100 transition-opacity">
-                    <ExternalLink className="w-4 h-4 mr-2" />
+                  <Button variant="ghost" size="sm" className="opacity-0 group-hover:opacity-100 transition-opacity text-xs px-2 py-1">
+                    <ExternalLink className="w-3 h-3 mr-1" />
                     LinkedIn
                   </Button>
                 </Card>

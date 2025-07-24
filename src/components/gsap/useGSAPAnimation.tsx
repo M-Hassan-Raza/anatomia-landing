@@ -47,24 +47,23 @@ export const useGSAPAnimation = () => {
   };
   
   const animateScrollSections = () => {
-    // Mix of different animations for variety
-    const animations = [
+    // Premium subtle animations only
+    const premiumAnimations = [
       ANIMATION_PRESETS.fadeInUp,
-      ANIMATION_PRESETS.slideInLeft,
-      ANIMATION_PRESETS.slideInRight,
-      ANIMATION_PRESETS.flipInX,
-      ANIMATION_PRESETS.zoomInRotate
+      ANIMATION_PRESETS.scaleInSubtle,
+      ANIMATION_PRESETS.slideInUpGentle,
+      ANIMATION_PRESETS.gentleFlipX
     ];
     
     gsap.utils.toArray('.animate-on-scroll').forEach((element: any, index: number) => {
-      const animation = animations[index % animations.length];
+      const animation = premiumAnimations[index % premiumAnimations.length];
       animationUtils.animateOnScroll(element, animation);
     });
   };
   
   const animateStaggeredLists = () => {
     gsap.utils.toArray('.stagger-list').forEach((list: any) => {
-      animationUtils.staggerChildren(list, '.stagger-item', ANIMATION_PRESETS.rollIn);
+      animationUtils.staggerChildren(list, '.stagger-item', ANIMATION_PRESETS.fadeInUp);
     });
   };
 

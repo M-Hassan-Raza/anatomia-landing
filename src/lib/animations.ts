@@ -4,146 +4,161 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 // Register GSAP plugins
 gsap.registerPlugin(ScrollTrigger);
 
-// Animation timing constants
+// Animation timing constants - Premium subtle timings
 export const ANIMATION_TIMING = {
   instant: 0,
-  fast: 0.2,
-  normal: 0.4,
-  slow: 0.6,
-  verySlow: 0.8,
-  stagger: 0.08,
-  staggerSlow: 0.12,
+  fast: 0.3,
+  normal: 0.6,
+  slow: 0.8,
+  verySlow: 1.2,
+  stagger: 0.12,
+  staggerSlow: 0.18,
+  premium: 0.9,
+  luxurious: 1.4,
 } as const;
 
-// Easing functions
+// Easing functions - Premium smooth curves
 export const ANIMATION_EASE = {
+  // Premium eases for luxury feel
+  premium: 'power3.out',
+  luxurious: 'power4.out',
+  silk: 'power2.inOut',
+  butter: 'power1.inOut',
+  
   // Standard eases
-  default: 'power2.inOut',
+  default: 'power2.out',
   in: 'power2.in',
   out: 'power2.out',
   inOut: 'power2.inOut',
   
-  // Special eases
+  // Subtle special eases
   bounce: 'bounce.out',
-  elastic: 'elastic.out(1, 0.3)',
-  back: 'back.out(1.7)',
+  elastic: 'elastic.out(1, 0.1)',
+  back: 'back.out(1.2)',
   
-  // Custom eases
+  // Custom premium curves
   anatomiaEase: 'M0,0 C0.25,0.1 0.25,1 1,1',
   anatomiaSpring: 'M0,0 C0.5,0 0.15,1 1,1',
+  anatomiaLux: 'M0,0 C0.165,0.84 0.44,1 1,1',
 } as const;
 
-// Animation presets
+// Animation presets - Premium & Subtle
 export const ANIMATION_PRESETS = {
-  // Fade animations
+  // Premium fade animations - very subtle
   fadeIn: {
     opacity: 0,
-    duration: ANIMATION_TIMING.normal,
-    ease: ANIMATION_EASE.out,
+    duration: ANIMATION_TIMING.premium,
+    ease: ANIMATION_EASE.premium,
   },
   fadeInUp: {
     opacity: 0,
-    y: 50,
-    duration: ANIMATION_TIMING.slow,
-    ease: ANIMATION_EASE.out,
+    y: 24,
+    duration: ANIMATION_TIMING.premium,
+    ease: ANIMATION_EASE.luxurious,
   },
   fadeInDown: {
     opacity: 0,
-    y: -50,
-    duration: ANIMATION_TIMING.slow,
-    ease: ANIMATION_EASE.out,
+    y: -24,
+    duration: ANIMATION_TIMING.premium,
+    ease: ANIMATION_EASE.luxurious,
   },
   fadeInLeft: {
     opacity: 0,
-    x: -60,
-    duration: ANIMATION_TIMING.slow,
-    ease: ANIMATION_EASE.out,
+    x: -32,
+    duration: ANIMATION_TIMING.premium,
+    ease: ANIMATION_EASE.silk,
   },
   fadeInRight: {
     opacity: 0,
-    x: 60,
-    duration: ANIMATION_TIMING.slow,
-    ease: ANIMATION_EASE.out,
+    x: 32,
+    duration: ANIMATION_TIMING.premium,
+    ease: ANIMATION_EASE.silk,
   },
   
-  // Scale animations
+  // Premium scale animations - very subtle
   scaleIn: {
-    scale: 0.7,
+    scale: 0.95,
     opacity: 0,
-    duration: ANIMATION_TIMING.slow,
-    ease: ANIMATION_EASE.back,
+    duration: ANIMATION_TIMING.luxurious,
+    ease: ANIMATION_EASE.anatomiaLux,
   },
-  scaleInRotate: {
-    scale: 0.5,
-    rotation: -180,
+  scaleInSubtle: {
+    scale: 0.98,
     opacity: 0,
-    duration: ANIMATION_TIMING.verySlow,
+    duration: ANIMATION_TIMING.premium,
+    ease: ANIMATION_EASE.silk,
+  },
+  
+  // Gentle bounce - premium feel
+  bounceInSubtle: {
+    scale: 0.9,
+    opacity: 0,
+    duration: ANIMATION_TIMING.luxurious,
     ease: ANIMATION_EASE.back,
   },
   
-  // Bounce animations
-  bounceIn: {
-    scale: 0.3,
-    opacity: 0,
-    duration: ANIMATION_TIMING.verySlow,
-    ease: ANIMATION_EASE.bounce,
-  },
-  
-  // Slide animations
+  // Smooth slide animations
   slideInLeft: {
-    x: '-100%',
+    x: '-32px',
     opacity: 0,
-    duration: ANIMATION_TIMING.slow,
-    ease: ANIMATION_EASE.out,
+    duration: ANIMATION_TIMING.premium,
+    ease: ANIMATION_EASE.premium,
   },
   slideInRight: {
-    x: '100%',
+    x: '32px',
     opacity: 0,
-    duration: ANIMATION_TIMING.slow,
-    ease: ANIMATION_EASE.out,
+    duration: ANIMATION_TIMING.premium,
+    ease: ANIMATION_EASE.premium,
   },
   
-  // Exciting new animations
-  flipInX: {
-    rotationX: -90,
+  // Premium special effects - much more subtle
+  gentleFlipX: {
+    rotationX: -15,
     opacity: 0,
     transformOrigin: '50% 50%',
-    duration: ANIMATION_TIMING.slow,
-    ease: ANIMATION_EASE.back,
+    duration: ANIMATION_TIMING.luxurious,
+    ease: ANIMATION_EASE.silk,
   },
-  flipInY: {
-    rotationY: -90,
+  gentleFlipY: {
+    rotationY: -15,
     opacity: 0,
     transformOrigin: '50% 50%',
-    duration: ANIMATION_TIMING.slow,
-    ease: ANIMATION_EASE.back,
+    duration: ANIMATION_TIMING.luxurious,
+    ease: ANIMATION_EASE.silk,
   },
-  zoomInRotate: {
-    scale: 0.5,
-    rotation: 360,
+  premiumRotate: {
+    scale: 0.95,
+    rotation: 8,
     opacity: 0,
-    duration: ANIMATION_TIMING.verySlow,
-    ease: ANIMATION_EASE.elastic,
+    duration: ANIMATION_TIMING.luxurious,
+    ease: ANIMATION_EASE.anatomiaLux,
   },
-  slideInUpBig: {
-    y: 100,
+  slideInUpGentle: {
+    y: 40,
     opacity: 0,
-    duration: ANIMATION_TIMING.slow,
-    ease: ANIMATION_EASE.back,
+    duration: ANIMATION_TIMING.premium,
+    ease: ANIMATION_EASE.luxurious,
   },
-  rollIn: {
-    x: -100,
-    rotation: -120,
+  
+  // Hero-specific premium animations
+  heroTitle: {
     opacity: 0,
-    duration: ANIMATION_TIMING.slow,
-    ease: ANIMATION_EASE.out,
+    y: 20,
+    duration: ANIMATION_TIMING.luxurious,
+    ease: ANIMATION_EASE.anatomiaLux,
   },
-  wobble: {
-    x: 0,
-    skewX: 0,
-    skewY: 0,
-    duration: ANIMATION_TIMING.normal,
-    ease: ANIMATION_EASE.out,
+  heroSubtitle: {
+    opacity: 0,
+    y: 16,
+    duration: ANIMATION_TIMING.premium,
+    ease: ANIMATION_EASE.silk,
+  },
+  heroCTA: {
+    opacity: 0,
+    scale: 0.98,
+    y: 12,
+    duration: ANIMATION_TIMING.premium,
+    ease: ANIMATION_EASE.butter,
   },
 } as const;
 
@@ -392,8 +407,8 @@ export const animationUtils = {
     return tl;
   },
 
-  // Floating animation
-  floatingAnimation: (elements: string | NodeList, intensity = 20) => {
+  // Premium floating animation - very subtle
+  floatingAnimation: (elements: string | NodeList, intensity = 8) => {
     const els = typeof elements === 'string' ? document.querySelectorAll(elements) : elements;
     
     if (!els || els.length === 0) return;
@@ -401,24 +416,25 @@ export const animationUtils = {
     Array.from(els).forEach((el: any, index: number) => {
       gsap.to(el, {
         y: `+=${intensity}`,
-        duration: 2 + (index * 0.2),
-        ease: 'power2.inOut',
+        duration: 4 + (index * 0.3),
+        ease: ANIMATION_EASE.silk,
         yoyo: true,
         repeat: -1,
-        delay: index * 0.1
+        delay: index * 0.2
       });
     });
   },
 
-  // Button hover effect
+  // Premium button hover effect - very subtle
   createButtonHover: (button: Element) => {
     const tl = gsap.timeline({ paused: true });
     
     tl.to(button, {
-      scale: 1.05,
-      boxShadow: '0 10px 30px rgba(0,0,0,0.2)',
+      scale: 1.02,
+      y: -2,
+      boxShadow: '0 8px 25px rgba(0,0,0,0.08)',
       duration: ANIMATION_TIMING.fast,
-      ease: ANIMATION_EASE.out
+      ease: ANIMATION_EASE.silk
     });
     
     button.addEventListener('mouseenter', () => tl.play());
@@ -447,46 +463,45 @@ export const animationUtils = {
 
 // Page-specific animation collections
 export const pageAnimations = {
-  // Hero animations
+  // Hero animations - Premium & Subtle
   hero: {
     init: () => {
       const tl = gsap.timeline({
-        defaults: { ease: ANIMATION_EASE.default }
+        defaults: { ease: ANIMATION_EASE.anatomiaLux }
       });
       
-      // Split text animation for headline
-      animationUtils.animateTextSplit('.hero-headline', 'words');
+      // Premium headline animation - no text split to avoid spacing issues
+      tl.from('.hero-headline', ANIMATION_PRESETS.heroTitle)
+        .from('.hero-subtitle', ANIMATION_PRESETS.heroSubtitle, '-=0.8')
+        .from('.hero-cta', ANIMATION_PRESETS.heroCTA, '-=0.6')
+        .from('.hero-image', ANIMATION_PRESETS.scaleInSubtle, '-=0.4')
+        .from('.trust-badges .badge', {
+          ...ANIMATION_PRESETS.fadeInUp,
+          stagger: ANIMATION_TIMING.staggerSlow,
+        }, '-=0.3');
       
-      tl.from('.hero-subtitle', ANIMATION_PRESETS.slideInUpBig, '+=0.3')
-        .from('.hero-cta', ANIMATION_PRESETS.bounceIn, '-=0.2')
-        .from('.hero-image', ANIMATION_PRESETS.zoomInRotate, '-=0.6')
-        .from('.trust-badges', {
-          ...ANIMATION_PRESETS.flipInY,
-          stagger: ANIMATION_TIMING.stagger,
-        }, '-=0.4');
-      
-      // Add floating animation to hero elements
-      animationUtils.floatingAnimation('.hero-image', 15);
+      // Very subtle floating animation
+      animationUtils.floatingAnimation('.hero-image', 8);
       
       return tl;
     },
   },
   
-  // Feature cards animations
+  // Feature cards animations - Premium & Subtle
   features: {
     init: () => {
-      // Staggered card animations with different effects
+      // Premium staggered card animations
       gsap.utils.toArray('.feature-card').forEach((card: any, index: number) => {
-        const animations = [
-          ANIMATION_PRESETS.flipInX,
-          ANIMATION_PRESETS.rollIn,
-          ANIMATION_PRESETS.zoomInRotate,
-          ANIMATION_PRESETS.slideInUpBig
+        const premiumAnimations = [
+          ANIMATION_PRESETS.fadeInUp,
+          ANIMATION_PRESETS.gentleFlipX,
+          ANIMATION_PRESETS.scaleInSubtle,
+          ANIMATION_PRESETS.slideInUpGentle
         ];
         
-        animationUtils.animateOnScroll(card, animations[index % animations.length]);
+        animationUtils.animateOnScroll(card, premiumAnimations[index % premiumAnimations.length]);
         
-        // Add hover effect
+        // Subtle hover effect
         animationUtils.createButtonHover(card);
       });
     },
