@@ -1,96 +1,131 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Anatomia Healthcare Design System - All colors, gradients, fonts, animations defined here */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
-
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
-
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
-
-    --radius: 0.5rem;
-
-    --sidebar-background: 0 0% 98%;
-
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    /* Anatomia Core Brand Colors */
+    --anatomia-primary: 220 100% 53%;      /* #0F6FFF - Trust Blue */
+    --anatomia-primary-dark: 220 100% 40%; /* #0052CC - Hover states */
+    --anatomia-primary-light: 220 100% 95%; /* #E6F0FF - Backgrounds */
+    
+    /* Semantic Clinical Colors */
+    --anatomia-success: 158 64% 52%;       /* #00A67E - Completed actions */
+    --anatomia-warning: 45 100% 50%;       /* #FFB800 - Urgent cases */
+    --anatomia-danger: 0 71% 52%;          /* #E53E3E - Critical alerts */
+    --anatomia-info: 207 90% 54%;          /* #3182CE - Information */
+    
+    /* Clinical Status Colors */
+    --anatomia-triage-high: 0 74% 42%;     /* #DC2626 - High priority */
+    --anatomia-triage-medium: 35 91% 65%;  /* #F59E0B - Medium priority */
+    --anatomia-triage-low: 142 71% 45%;    /* #10B981 - Low priority */
+    --anatomia-triage-info: 231 48% 48%;   /* #6366F1 - Informational */
+    
+    /* Neutral Palette */
+    --anatomia-gray-900: 220 39% 11%;      /* #1A202C - Primary text */
+    --anatomia-gray-800: 218 23% 23%;      /* #2D3748 - Secondary text */
+    --anatomia-gray-700: 215 25% 27%;      /* #4A5568 - Tertiary text */
+    --anatomia-gray-600: 214 20% 69%;      /* #718096 - Disabled text */
+    --anatomia-gray-500: 211 25% 84%;      /* #A0AEC0 - Borders */
+    --anatomia-gray-400: 218 11% 65%;      /* #CBD5E0 - Dividers */
+    --anatomia-gray-300: 214 32% 91%;      /* #E2E8F0 - Backgrounds */
+    --anatomia-gray-200: 210 40% 96%;      /* #EDF2F7 - Light backgrounds */
+    --anatomia-gray-100: 210 40% 98%;      /* #F7FAFC - Page backgrounds */
+    --anatomia-white: 0 0% 100%;           /* #FFFFFF - Cards, modals */
+    
+    /* Gradients */
+    --anatomia-gradient-primary: linear-gradient(135deg, hsl(var(--anatomia-primary)) 0%, hsl(var(--anatomia-primary-dark)) 100%);
+    --anatomia-gradient-mesh: radial-gradient(at 40% 20%, hsla(210, 100%, 60%, 0.3) 0px, transparent 50%),
+                              radial-gradient(at 80% 0%, hsla(189, 100%, 56%, 0.2) 0px, transparent 50%),
+                              radial-gradient(at 0% 50%, hsla(355, 100%, 60%, 0.1) 0px, transparent 50%);
+    
+    /* Shadows */
+    --anatomia-shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    --anatomia-shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    --anatomia-shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    --anatomia-shadow-primary: 0 10px 30px -10px hsla(var(--anatomia-primary), 0.3);
+    --anatomia-shadow-glow: 0 0 40px hsla(var(--anatomia-primary-light), 0.4);
+    
+    /* Typography */
+    --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-display: 'Plus Jakarta Sans', var(--font-primary);
+    --font-mono: 'JetBrains Mono', 'Fira Code', Consolas, monospace;
+    
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-fast: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    
+    /* Design System Tokens */
+    --background: var(--anatomia-white);
+    --foreground: var(--anatomia-gray-900);
+    --card: var(--anatomia-white);
+    --card-foreground: var(--anatomia-gray-900);
+    --popover: var(--anatomia-white);
+    --popover-foreground: var(--anatomia-gray-900);
+    --primary: var(--anatomia-primary);
+    --primary-foreground: var(--anatomia-white);
+    --secondary: var(--anatomia-gray-200);
+    --secondary-foreground: var(--anatomia-gray-900);
+    --muted: var(--anatomia-gray-200);
+    --muted-foreground: var(--anatomia-gray-700);
+    --accent: var(--anatomia-gray-200);
+    --accent-foreground: var(--anatomia-gray-900);
+    --destructive: var(--anatomia-danger);
+    --destructive-foreground: var(--anatomia-white);
+    --border: var(--anatomia-gray-300);
+    --input: var(--anatomia-gray-300);
+    --ring: var(--anatomia-primary);
+    --radius: 0.75rem;
+    
+    /* Sidebar tokens */
+    --sidebar-background: var(--anatomia-gray-100);
+    --sidebar-foreground: var(--anatomia-gray-700);
+    --sidebar-primary: var(--anatomia-gray-900);
+    --sidebar-primary-foreground: var(--anatomia-white);
+    --sidebar-accent: var(--anatomia-gray-200);
+    --sidebar-accent-foreground: var(--anatomia-gray-900);
+    --sidebar-border: var(--anatomia-gray-300);
+    --sidebar-ring: var(--anatomia-primary);
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --anatomia-dark-bg: 222 47% 11%;        /* #0F172A - Main background */
+    --anatomia-dark-surface: 217 33% 17%;   /* #1E293B - Cards, surfaces */
+    --anatomia-dark-border: 215 25% 27%;    /* #334155 - Borders */
+    --anatomia-dark-text: 210 40% 98%;      /* #F1F5F9 - Primary text */
+    
+    --background: var(--anatomia-dark-bg);
+    --foreground: var(--anatomia-dark-text);
+    --card: var(--anatomia-dark-surface);
+    --card-foreground: var(--anatomia-dark-text);
+    --popover: var(--anatomia-dark-surface);
+    --popover-foreground: var(--anatomia-dark-text);
+    --primary: var(--anatomia-primary);
+    --primary-foreground: var(--anatomia-white);
+    --secondary: var(--anatomia-dark-surface);
+    --secondary-foreground: var(--anatomia-dark-text);
+    --muted: var(--anatomia-dark-surface);
+    --muted-foreground: var(--anatomia-gray-400);
+    --accent: var(--anatomia-dark-surface);
+    --accent-foreground: var(--anatomia-dark-text);
+    --destructive: var(--anatomia-danger);
+    --destructive-foreground: var(--anatomia-white);
+    --border: var(--anatomia-dark-border);
+    --input: var(--anatomia-dark-border);
+    --ring: var(--anatomia-primary);
+    
+    --sidebar-background: var(--anatomia-dark-bg);
+    --sidebar-foreground: var(--anatomia-gray-400);
+    --sidebar-primary: var(--anatomia-primary);
+    --sidebar-primary-foreground: var(--anatomia-white);
+    --sidebar-accent: var(--anatomia-dark-surface);
+    --sidebar-accent-foreground: var(--anatomia-dark-text);
+    --sidebar-border: var(--anatomia-dark-border);
+    --sidebar-ring: var(--anatomia-primary);
   }
 }
 
@@ -101,5 +136,140 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+    font-family: var(--font-primary);
+    font-feature-settings: 'rlig' 1, 'calt' 1;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
+  
+  /* Typography Classes */
+  .font-display { font-family: var(--font-display); }
+  .font-mono { font-family: var(--font-mono); }
+  
+  /* Display Sizes */
+  .text-display-2xl { font-size: 4.5rem; line-height: 1; font-weight: 800; }
+  .text-display-xl { font-size: 3.75rem; line-height: 1; font-weight: 700; }
+  .text-display-lg { font-size: 3rem; line-height: 1.1; font-weight: 700; }
+  
+  /* Heading Sizes */
+  .text-heading-xl { font-size: 2.25rem; line-height: 1.2; font-weight: 700; }
+  .text-heading-lg { font-size: 1.875rem; line-height: 1.3; font-weight: 600; }
+  .text-heading-md { font-size: 1.5rem; line-height: 1.3; font-weight: 600; }
+  .text-heading-sm { font-size: 1.25rem; line-height: 1.4; font-weight: 600; }
+  .text-heading-xs { font-size: 1.125rem; line-height: 1.4; font-weight: 600; }
+  
+  /* Body Sizes */
+  .text-body-lg { font-size: 1.125rem; line-height: 1.6; }
+  .text-body-md { font-size: 1rem; line-height: 1.6; }
+  .text-body-sm { font-size: 0.875rem; line-height: 1.5; }
+  .text-body-xs { font-size: 0.75rem; line-height: 1.4; }
+  
+  /* Smooth scrolling */
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  /* Remove scrollbar appearance in webkit browsers */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@layer components {
+  /* Button Components */
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 text-sm font-semibold rounded-xl transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50;
+  }
+  
+  .btn-primary {
+    @apply bg-primary text-primary-foreground shadow-md hover:bg-primary/90 hover:-translate-y-0.5 hover:shadow-lg;
+    box-shadow: var(--anatomia-shadow-primary);
+  }
+  
+  .btn-secondary {
+    @apply bg-secondary text-secondary-foreground border border-border hover:bg-secondary/80;
+  }
+  
+  .btn-ghost {
+    @apply hover:bg-accent hover:text-accent-foreground;
+  }
+  
+  .btn-hero {
+    @apply bg-white/10 text-white border border-white/20 backdrop-blur-sm hover:bg-white/20 hover:border-white/30;
+  }
+  
+  .btn-lg {
+    @apply px-8 py-4 text-base;
+  }
+  
+  .btn-sm {
+    @apply px-4 py-2 text-sm;
+  }
+  
+  /* Card Components */
+  .card {
+    @apply bg-card text-card-foreground rounded-2xl border shadow-sm transition-all duration-300;
+  }
+  
+  .card:hover {
+    box-shadow: var(--anatomia-shadow-lg);
+  }
+  
+  .clinical-card {
+    @apply card border-l-4 border-l-border relative overflow-hidden;
+  }
+  
+  .clinical-card.high-priority {
+    @apply border-l-red-500;
+  }
+  
+  .clinical-card.medium-priority {
+    @apply border-l-yellow-500;
+  }
+  
+  .clinical-card.low-priority {
+    @apply border-l-green-500;
+  }
+  
+  /* Navigation */
+  .nav-header {
+    @apply h-18 bg-background/80 backdrop-blur-md border-b border-border sticky top-0 z-50;
+  }
+  
+  /* Interactive Elements */
+  .hover-scale {
+    @apply transition-transform duration-200 hover:scale-105;
+  }
+  
+  .story-link {
+    @apply relative inline-block;
+  }
+  
+  .story-link::after {
+    @apply absolute content-[''] w-full scale-x-0 h-0.5 bottom-0 left-0 bg-primary origin-bottom-right transition-transform duration-300;
+  }
+  
+  .story-link:hover::after {
+    @apply scale-x-100 origin-bottom-left;
+  }
+  
+  /* Gradients */
+  .gradient-primary {
+    background: var(--anatomia-gradient-primary);
+  }
+  
+  .gradient-mesh {
+    background: var(--anatomia-gradient-mesh);
+  }
+  
+  /* Status Indicators */
+  .status-high { @apply bg-red-100 text-red-800 border-red-200; }
+  .status-medium { @apply bg-yellow-100 text-yellow-800 border-yellow-200; }
+  .status-low { @apply bg-green-100 text-green-800 border-green-200; }
+  .status-info { @apply bg-blue-100 text-blue-800 border-blue-200; }
 }
