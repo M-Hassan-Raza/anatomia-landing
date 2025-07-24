@@ -5,6 +5,7 @@ import ProblemSolutionSection from '@/components/ProblemSolutionSection';
 import FeatureShowcase from '@/components/FeatureShowcase';
 import MetricsSection from '@/components/MetricsSection';
 import IntegrationSection from '@/components/IntegrationSection';
+import TestimonialsSection from '@/components/TestimonialsSection';
 import ROICalculator from '@/components/ROICalculator';
 import CTASection from '@/components/CTASection';
 import Footer from '@/components/Footer';
@@ -22,6 +23,7 @@ const Index = () => {
           <FeatureShowcase />
           <MetricsSection />
           <IntegrationSection />
+          <TestimonialsSection />
           <ROICalculator />
           <CTASection />
         </main>

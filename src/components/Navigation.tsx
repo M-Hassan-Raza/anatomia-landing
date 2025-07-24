@@ -55,10 +55,10 @@ const Navigation = () => {
   ];
 
   const resourcesDropdownItems = [
-    { name: 'Documentation', desc: 'Technical guides' },
-    { name: 'Case Studies', desc: 'Success stories' },
-    { name: 'Blog', desc: 'Latest insights' },
-    { name: 'Support', desc: 'Get help' }
+    { name: 'Case Studies', desc: 'Success stories', href: '/case-studies' },
+    { name: 'Blog', desc: 'Latest insights', href: '/blog' },
+    { name: 'Security', desc: 'Compliance & safety', href: '/security' },
+    { name: 'Documentation', desc: 'Technical guides', href: '#' }
   ];
 
   return (
@@ -139,7 +139,7 @@ const Navigation = () => {
                     {resourcesDropdownItems.map((item) => (
                       <a 
                         key={item.name}
-                        href="#" 
+                        href={item.href} 
                         className="flex items-center justify-between p-3 rounded-xl hover:bg-anatomia-gray-100 transition-colors group"
                       >
                         <div>
@@ -161,7 +161,7 @@ const Navigation = () => {
                 Login
               </Button>
               <Button className="btn btn-primary font-semibold">
-                Get Demo
+                <a href="/demo" className="text-white">Get Demo</a>
               </Button>
             </div>
           </div>
@@ -223,7 +223,7 @@ const Navigation = () => {
                 <h3 className="font-semibold text-foreground mb-3">Resources</h3>
                 <div className="space-y-2 ml-4">
                   {resourcesDropdownItems.map((item) => (
-                    <a key={item.name} href="#" className="block text-anatomia-gray-700 hover:text-primary transition-colors py-2">
+                    <a key={item.name} href={item.href} className="block text-anatomia-gray-700 hover:text-primary transition-colors py-2">
                       {item.name}
                     </a>
                   ))}
@@ -239,7 +239,7 @@ const Navigation = () => {
                 Login
               </Button>
               <Button className="w-full btn btn-primary font-semibold">
-                Get Demo
+                <a href="/demo" className="text-white">Get Demo</a>
               </Button>
             </div>
           </div>

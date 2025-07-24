@@ -72,16 +72,22 @@ export default {
 				},
 				// Anatomia specific colors
 				anatomia: {
+					// Semantic status colors
 					success: 'hsl(var(--anatomia-success))',
 					warning: 'hsl(var(--anatomia-warning))',
 					danger: 'hsl(var(--anatomia-danger))',
 					info: 'hsl(var(--anatomia-info))',
+					
+					// Clinical triage colors
 					triage: {
+						critical: 'hsl(var(--anatomia-triage-high))',
 						high: 'hsl(var(--anatomia-triage-high))',
 						medium: 'hsl(var(--anatomia-triage-medium))',
 						low: 'hsl(var(--anatomia-triage-low))',
 						info: 'hsl(var(--anatomia-triage-info))'
 					},
+					
+					// Neutral scale
 					gray: {
 						900: 'hsl(var(--anatomia-gray-900))',
 						800: 'hsl(var(--anatomia-gray-800))',
@@ -91,7 +97,42 @@ export default {
 						400: 'hsl(var(--anatomia-gray-400))',
 						300: 'hsl(var(--anatomia-gray-300))',
 						200: 'hsl(var(--anatomia-gray-200))',
-						100: 'hsl(var(--anatomia-gray-100))'
+						100: 'hsl(var(--anatomia-gray-100))',
+						50: 'hsl(var(--anatomia-gray-50))'
+					},
+					
+					// Semantic UI colors
+					text: {
+						primary: 'hsl(var(--anatomia-gray-900))',
+						secondary: 'hsl(var(--anatomia-gray-700))',
+						tertiary: 'hsl(var(--anatomia-gray-600))',
+						disabled: 'hsl(var(--anatomia-gray-500))',
+						inverse: 'hsl(var(--anatomia-white))'
+					},
+					
+					// Background semantic colors
+					surface: {
+						primary: 'hsl(var(--anatomia-white))',
+						secondary: 'hsl(var(--anatomia-gray-50))',
+						tertiary: 'hsl(var(--anatomia-gray-100))',
+						elevated: 'hsl(var(--anatomia-white))',
+						overlay: 'hsla(var(--anatomia-gray-900), 0.5)'
+					},
+					
+					// Interactive state colors
+					state: {
+						hover: 'hsl(var(--anatomia-primary-dark))',
+						active: 'hsl(var(--anatomia-primary-dark))',
+						focus: 'hsl(var(--anatomia-primary))',
+						disabled: 'hsl(var(--anatomia-gray-400))'
+					},
+					
+					// Feature-specific colors
+					feature: {
+						emergency: 'hsl(var(--anatomia-danger))',
+						clinical: 'hsl(var(--anatomia-info))',
+						admin: 'hsl(var(--anatomia-warning))',
+						general: 'hsl(var(--anatomia-success))'
 					}
 				}
 			},

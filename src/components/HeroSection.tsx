@@ -6,15 +6,29 @@ import { useGSAPAnimation } from './gsap/useGSAPAnimation';
 import heroImage from '@/assets/hero-medical-ai.jpg';
 
 const HeroSection = () => {
-  const { animateHero, addMagneticEffect } = useGSAPAnimation();
+  const { 
+    animateHero, 
+    addMagneticEffect, 
+    addFloatingElements,
+    createRollingText,
+    addGlitchEffect 
+  } = useGSAPAnimation();
 
   useEffect(() => {
     const timeline = animateHero();
     addMagneticEffect();
+    addFloatingElements();
+    
+    // Add rolling text effect for key metrics
+    createRollingText('.rolling-metric', ['73%', '85%', '92%', '68%']);
+    
+    // Add glitch effect to certain elements
+    addGlitchEffect('.glitch-on-hover');
+    
     return () => {
       timeline.kill();
     };
-  }, [animateHero, addMagneticEffect]);
+  }, [animateHero, addMagneticEffect, addFloatingElements, createRollingText, addGlitchEffect]);
 
   const trustBadges = [
     { icon: Shield, text: "HIPAA Compliant" },
@@ -43,7 +57,7 @@ const HeroSection = () => {
               
               <p className="hero-subtitle text-body-lg lg:text-heading-xs text-anatomia-gray-700 max-w-2xl">
                 AI-powered clinical workflow that reduces triage time by{' '}
-                <span className="font-semibold text-primary">73%</span> and transforms 
+                <span className="rolling-metric font-bold text-2xl text-primary glitch-on-hover">73%</span> and transforms 
                 every patient interaction into structured, actionable healthcare data.
               </p>
             </div>
@@ -81,26 +95,36 @@ const HeroSection = () => {
 
           {/* Right Content - Hero Image */}
           <div className="hero-image relative">
-            <div className="relative">
+            <div className="relative floating-element">
               <img 
                 src={heroImage}
                 alt="AI-powered healthcare analytics dashboard"
-                className="w-full rounded-2xl shadow-anatomia-lg animate-float"
+                className="w-full rounded-2xl shadow-anatomia-lg"
               />
               
-              {/* Floating elements */}
-              <div className="absolute -top-4 -right-4 bg-background rounded-xl p-4 shadow-anatomia-md border border-border animate-pulse-slow">
+              {/* Floating elements with enhanced animations */}
+              <div className="floating-element absolute -top-4 -right-4 bg-background rounded-xl p-4 shadow-anatomia-md border border-border animate-pulse-slow">
                 <div className="flex items-center gap-3">
-                  <div className="w-3 h-3 bg-anatomia-success rounded-full"></div>
+                  <div className="w-3 h-3 bg-anatomia-success rounded-full animate-pulse"></div>
                   <span className="text-body-sm font-medium">Live Processing</span>
                 </div>
               </div>
               
-              <div className="absolute -bottom-4 -left-4 bg-background rounded-xl p-4 shadow-anatomia-md border border-border">
+              <div className="floating-element absolute -bottom-4 -left-4 bg-background rounded-xl p-4 shadow-anatomia-md border border-border">
                 <div className="space-y-2">
                   <div className="text-body-xs text-anatomia-gray-600">Average Processing Time</div>
-                  <div className="text-heading-sm font-bold text-primary">45 seconds</div>
+                  <div className="text-heading-sm font-bold text-primary glitch-on-hover">45 seconds</div>
                 </div>
+              </div>
+
+              {/* Additional floating elements */}
+              <div className="floating-element absolute top-1/2 -left-8 bg-primary/10 backdrop-blur-sm rounded-full p-3 shadow-anatomia-md">
+                <div className="w-4 h-4 bg-primary rounded-full animate-ping"></div>
+              </div>
+
+              <div className="floating-element absolute top-1/4 -right-8 bg-anatomia-success/10 backdrop-blur-sm rounded-xl p-3 shadow-anatomia-md">
+                <div className="text-xs font-bold text-anatomia-success">+127%</div>
+                <div className="text-xs text-anatomia-gray-600">Efficiency</div>
               </div>
             </div>
           </div>

@@ -35,6 +35,7 @@
     --anatomia-gray-300: 214 32% 91%;      /* #E2E8F0 - Backgrounds */
     --anatomia-gray-200: 210 40% 96%;      /* #EDF2F7 - Light backgrounds */
     --anatomia-gray-100: 210 40% 98%;      /* #F7FAFC - Page backgrounds */
+    --anatomia-gray-50: 210 40% 99%;       /* #FAFBFC - Very light backgrounds */
     --anatomia-white: 0 0% 100%;           /* #FFFFFF - Cards, modals */
     
     /* Gradients */
@@ -284,4 +285,255 @@
   .status-medium { @apply bg-yellow-100 text-yellow-800 border-yellow-200; }
   .status-low { @apply bg-green-100 text-green-800 border-green-200; }
   .status-info { @apply bg-blue-100 text-blue-800 border-blue-200; }
+
+  /* Responsive Typography Enhancements */
+  @media (max-width: 640px) {
+    .text-display-2xl { font-size: 2.5rem; line-height: 1.1; }
+    .text-display-xl { font-size: 2.25rem; line-height: 1.1; }
+    .text-display-lg { font-size: 2rem; line-height: 1.2; }
+    .text-heading-xl { font-size: 1.875rem; line-height: 1.2; }
+    .text-heading-lg { font-size: 1.5rem; line-height: 1.3; }
+  }
+
+  /* Advanced Animation Classes */
+  .animate-fade-in-up {
+    animation: fadeInUp 0.6s ease-out forwards;
+  }
+
+  .animate-scale-in {
+    animation: scaleIn 0.4s ease-out forwards;
+  }
+
+  .animate-slide-in-left {
+    animation: slideInLeft 0.6s ease-out forwards;
+  }
+
+  .animate-slide-in-right {
+    animation: slideInRight 0.6s ease-out forwards;
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes scaleIn {
+    from {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  @keyframes slideInLeft {
+    from {
+      opacity: 0;
+      transform: translateX(-30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes slideInRight {
+    from {
+      opacity: 0;
+      transform: translateX(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  /* Enhanced Interaction States */
+  .interactive-element {
+    @apply transition-all duration-300 ease-out cursor-pointer;
+  }
+
+  .interactive-element:hover {
+    @apply transform -translate-y-1 shadow-lg;
+  }
+
+  .interactive-element:active {
+    @apply transform translate-y-0;
+  }
+
+  .interactive-card {
+    @apply transition-all duration-300 ease-out cursor-pointer;
+  }
+
+  .interactive-card:hover {
+    @apply transform -translate-y-2 scale-105;
+  }
+
+  /* Magnetic button effect */
+  .magnetic-btn {
+    @apply transition-all duration-300 ease-out;
+  }
+
+  /* Floating elements animation base */
+  .floating-element {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .floating-element:nth-child(even) {
+    animation-delay: -2s;
+  }
+
+  .floating-element:nth-child(3n) {
+    animation-delay: -4s;
+  }
+
+  /* Glass morphism effects */
+  .glass {
+    @apply bg-white/10 backdrop-blur-md border border-white/20;
+  }
+
+  .glass-dark {
+    @apply bg-black/10 backdrop-blur-md border border-black/20;
+  }
+
+  /* Focus states for accessibility */
+  .focus-ring {
+    @apply focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2;
+  }
+
+  /* Loading states */
+  .skeleton {
+    @apply bg-gray-200 animate-pulse rounded;
+  }
+
+  .skeleton-dark {
+    @apply bg-gray-700 animate-pulse rounded;
+  }
+
+  /* Testimonial cards */
+  .testimonial-card {
+    @apply card p-6 relative;
+  }
+
+  .testimonial-card::before {
+    content: '"';
+    @apply absolute top-4 left-4 text-4xl text-primary opacity-20 font-serif;
+  }
+
+  /* Feature showcase tabs */
+  .feature-tab {
+    @apply px-6 py-3 rounded-lg font-medium transition-all duration-200;
+  }
+
+  .feature-tab.active {
+    @apply bg-primary text-white shadow-md;
+  }
+
+  .feature-tab:not(.active) {
+    @apply text-gray-600 hover:text-gray-900 hover:bg-gray-100;
+  }
+
+  /* Pricing card enhancements */
+  .pricing-card {
+    @apply card p-8 relative;
+  }
+
+  .pricing-card.featured {
+    @apply border-primary shadow-anatomia-primary scale-105;
+  }
+
+  .pricing-card.featured::before {
+    content: 'Most Popular';
+    @apply absolute -top-4 left-1/2 transform -translate-x-1/2 bg-primary text-white px-4 py-2 rounded-full text-sm font-semibold;
+  }
+
+  /* Security badges */
+  .security-badge {
+    @apply flex items-center gap-2 px-4 py-2 bg-gray-50 rounded-lg border;
+  }
+
+  .security-badge-icon {
+    @apply w-5 h-5 text-green-600;
+  }
+
+  /* Timeline styles */
+  .timeline {
+    @apply relative max-w-4xl mx-auto;
+  }
+
+  .timeline::before {
+    content: '';
+    @apply absolute left-1/2 top-0 bottom-0 w-0.5 bg-anatomia-gray-300 transform -translate-x-1/2;
+  }
+
+  .timeline-item {
+    @apply relative mb-8 w-full;
+  }
+
+  .timeline-left {
+    @apply pr-[50%];
+  }
+
+  .timeline-right {
+    @apply pl-[50%];
+  }
+
+  .timeline-left .timeline-card {
+    @apply mr-8;
+  }
+
+  .timeline-right .timeline-card {
+    @apply ml-8;
+  }
+
+  @media (max-width: 768px) {
+    .timeline::before {
+      @apply left-8;
+    }
+    
+    .timeline-left,
+    .timeline-right {
+      @apply pl-16 pr-0;
+    }
+    
+    .timeline-left .timeline-card,
+    .timeline-right .timeline-card {
+      @apply mr-0 ml-0;
+    }
+  }
+
+  /* Stats animation setup */
+  .stat-card {
+    @apply card p-6 text-center;
+  }
+
+  .stat-number {
+    @apply text-3xl font-bold text-primary mb-2;
+  }
+
+  .stat-label {
+    @apply text-gray-600 text-sm;
+  }
+
+  /* CTA section enhancements */
+  .cta-section {
+    @apply relative overflow-hidden;
+  }
+
+  .cta-section::before {
+    content: '';
+    @apply absolute inset-0 gradient-primary opacity-90;
+  }
+
+  .cta-content {
+    @apply relative z-10 text-white;
+  }
 }
