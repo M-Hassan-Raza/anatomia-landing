@@ -4,7 +4,7 @@ import { useAnimation } from './AnimationContext';
 export const useGSAPAnimation = () => {
   const { gsap, TIMING, anatomiaEase, anatomiaSpring } = useAnimation();
 
-  // Hero section animation
+  // Enhanced hero section animation
   const animateHero = () => {
     const heroTimeline = gsap.timeline({
       defaults: { ease: anatomiaEase }
@@ -12,33 +12,89 @@ export const useGSAPAnimation = () => {
 
     heroTimeline
       .from(".hero-headline", {
-        y: 30,
+        y: 60,
         opacity: 0,
-        duration: TIMING.slow
+        duration: TIMING.slow,
+        ease: "back.out(1.7)"
       })
       .from(".hero-subtitle", {
-        y: 20,
+        y: 30,
         opacity: 0,
         duration: TIMING.normal
-      }, "-=0.3")
-      .from(".hero-cta", {
-        scale: 0.9,
-        opacity: 0,
-        duration: TIMING.normal
-      }, "-=0.2")
-      .from(".hero-image", {
-        x: 50,
-        opacity: 0,
-        duration: TIMING.slow
       }, "-=0.4")
+      .from(".hero-cta", {
+        scale: 0.8,
+        opacity: 0,
+        duration: TIMING.normal,
+        ease: "back.out(1.7)"
+      }, "-=0.3")
+      .from(".hero-image", {
+        scale: 0.8,
+        opacity: 0,
+        duration: TIMING.slow,
+        ease: "power2.out"
+      }, "-=0.5")
       .from(".trust-badges", {
-        y: 20,
+        y: 30,
         opacity: 0,
         duration: TIMING.normal,
         stagger: TIMING.stagger
+      }, "-=0.4")
+      .from(".floating-elements", {
+        scale: 0,
+        rotation: 180,
+        opacity: 0,
+        duration: TIMING.slow,
+        stagger: 0.2,
+        ease: "back.out(1.7)"
       }, "-=0.3");
 
     return heroTimeline;
+  };
+
+  // Magnetic button effect
+  const addMagneticEffect = () => {
+    document.querySelectorAll('.magnetic-btn').forEach((btn: any) => {
+      btn.addEventListener('mousemove', (e: MouseEvent) => {
+        const rect = btn.getBoundingClientRect();
+        const x = e.clientX - rect.left - rect.width / 2;
+        const y = e.clientY - rect.top - rect.height / 2;
+        
+        gsap.to(btn, {
+          x: x * 0.3,
+          y: y * 0.3,
+          duration: 0.3,
+          ease: "power2.out"
+        });
+      });
+      
+      btn.addEventListener('mouseleave', () => {
+        gsap.to(btn, {
+          x: 0,
+          y: 0,
+          duration: 0.5,
+          ease: "elastic.out(1, 0.3)"
+        });
+      });
+    });
+  };
+
+  // Parallax scrolling effect
+  const addParallaxEffect = () => {
+    gsap.utils.toArray(".parallax-element").forEach((element: any) => {
+      const speed = element.getAttribute("data-speed") || 0.5;
+      
+      gsap.to(element, {
+        yPercent: -50 * speed,
+        ease: "none",
+        scrollTrigger: {
+          trigger: element,
+          start: "top bottom",
+          end: "bottom top",
+          scrub: true
+        }
+      });
+    });
   };
 
   // Feature cards animation
@@ -146,6 +202,8 @@ export const useGSAPAnimation = () => {
     setupHoverEffects,
     animateScrollSections,
     animateStaggeredLists,
+    addMagneticEffect,
+    addParallaxEffect,
     gsap,
     TIMING
   };

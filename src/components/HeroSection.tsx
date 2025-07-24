@@ -6,14 +6,15 @@ import { useGSAPAnimation } from './gsap/useGSAPAnimation';
 import heroImage from '@/assets/hero-medical-ai.jpg';
 
 const HeroSection = () => {
-  const { animateHero } = useGSAPAnimation();
+  const { animateHero, addMagneticEffect } = useGSAPAnimation();
 
   useEffect(() => {
     const timeline = animateHero();
+    addMagneticEffect();
     return () => {
       timeline.kill();
     };
-  }, [animateHero]);
+  }, [animateHero, addMagneticEffect]);
 
   const trustBadges = [
     { icon: Shield, text: "HIPAA Compliant" },
@@ -49,11 +50,11 @@ const HeroSection = () => {
 
             {/* CTAs */}
             <div className="hero-cta flex flex-col sm:flex-row gap-4">
-              <Button className="btn btn-primary btn-lg group">
+              <Button className="btn btn-primary btn-lg magnetic-btn group">
                 <Play className="w-5 h-5 mr-2 group-hover:scale-110 transition-transform" />
                 Watch Demo (2 min)
               </Button>
-              <Button variant="outline" className="btn btn-lg border-2">
+              <Button variant="outline" className="btn btn-lg magnetic-btn border-2">
                 Start Free Trial
               </Button>
             </div>
