@@ -18,7 +18,7 @@ const Navigation = () => {
     <nav className={`nav-header transition-all duration-300 ${
       isScrolled ? 'bg-background/95 backdrop-blur-md shadow-anatomia-sm' : 'bg-transparent'
     }`}>
-      <div className="container mx-auto px-6 h-18 flex items-center justify-between">
+      <div className="container mx-auto px-6 h-16 flex items-center justify-between">
         {/* Logo */}
         <div className="flex items-center space-x-2">
           <div className="w-8 h-8 bg-gradient-primary rounded-lg flex items-center justify-center">

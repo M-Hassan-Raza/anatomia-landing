@@ -238,7 +238,7 @@
   
   /* Navigation */
   .nav-header {
-    @apply h-18 bg-background/80 backdrop-blur-md border-b border-border sticky top-0 z-50;
+    @apply h-16 bg-background/80 backdrop-blur-md border-b border-border sticky top-0 z-50;
   }
   
   /* Interactive Elements */
