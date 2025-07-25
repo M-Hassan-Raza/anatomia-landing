@@ -9,40 +9,40 @@ import { AnimationProvider } from '@/components/gsap/AnimationContext';
 const Company = () => {
   const timeline = [
     {
-      year: '2020',
+      year: '2023',
       title: 'Founded',
-      description: 'Dr. Sarah Chen and Michael Rodriguez meet at Stanford AI in Healthcare Conference and identify the need for intelligent clinical triage',
+      description: 'Anatomia was founded with a vision to revolutionize healthcare through AI-powered clinical decision support',
       milestone: true
-    },
-    {
-      year: '2021',
-      title: 'First Prototype',
-      description: 'Developed MVP with Stanford Medicine pilot program, processing 1,000+ patient calls with 85% accuracy',
-      milestone: false
-    },
-    {
-      year: '2022',
-      title: 'Series A Funding',
-      description: 'Raised $15M Series A led by Andreessen Horowitz with participation from GV (Google Ventures)',
-      milestone: true
-    },
-    {
-      year: '2022',
-      title: 'HIPAA Compliance',
-      description: 'Achieved full HIPAA compliance and SOC 2 Type II certification, enabling deployment at scale',
-      milestone: false
     },
     {
       year: '2023',
-      title: 'First Health System',
-      description: 'Regional Medical Center becomes first health system customer, processing 50,000+ calls in first year',
+      title: 'Initial Development',
+      description: 'Built core AI algorithms and prototype for intelligent clinical workflow automation',
+      milestone: false
+    },
+    {
+      year: '2024',
+      title: 'Platform Launch',
+      description: 'Launched comprehensive healthcare AI platform with advanced triage and documentation capabilities',
       milestone: true
     },
     {
       year: '2024',
-      title: 'National Expansion',
-      description: 'Scaled to 500+ healthcare organizations across 45 states, processing 3.2M+ patient interactions',
+      title: 'Security & Compliance',
+      description: 'Achieved HIPAA compliance and implemented enterprise-grade security features',
+      milestone: false
+    },
+    {
+      year: '2024',
+      title: 'Market Expansion',
+      description: 'Expanded platform capabilities and began serving healthcare organizations nationwide',
       milestone: true
+    },
+    {
+      year: '2025',
+      title: 'Continued Innovation',
+      description: 'Ongoing development of advanced AI features and expanding healthcare partnerships',
+      milestone: false
     }
   ];
 

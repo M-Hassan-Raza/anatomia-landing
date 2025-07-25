@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { Button } from '@/components/ui/button';
-import { Menu, X, ChevronDown, ArrowRight } from 'lucide-react';
+import { Menu, X, ChevronDown, ArrowRight, ExternalLink } from 'lucide-react';
 import { useGSAPAnimation } from '@/components/gsap/useGSAPAnimation';
 
 const Navigation = () => {
@@ -19,12 +19,12 @@ const Navigation = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Enhanced logo animation
+  // Simple logo animation
   useEffect(() => {
     if (logoRef.current) {
       gsap.fromTo(logoRef.current, 
-        { scale: 0, rotation: -180, opacity: 0 },
-        { scale: 1, rotation: 0, opacity: 1, duration: TIMING.slow, ease: "back.out(1.7)" }
+        { opacity: 0 },
+        { opacity: 1, duration: TIMING.normal, ease: "power2.out" }
       );
     }
   }, [gsap, TIMING]);
@@ -158,10 +158,13 @@ const Navigation = () => {
 
             <div className="flex items-center space-x-3">
               <Button variant="ghost" className="text-anatomia-gray-700 hover:text-primary font-medium">
-                Login
+                <a href="https://anatomia.entropyand.co" target="_blank" rel="noopener noreferrer" className="flex items-center">
+                  Live Demo
+                  <ExternalLink className="w-4 h-4 ml-1" />
+                </a>
               </Button>
               <Button className="btn btn-primary font-semibold">
-                <a href="/demo" className="text-white">Get Demo</a>
+                <a href="/demo" className="text-white">Get Started</a>
               </Button>
             </div>
           </div>
@@ -236,10 +239,13 @@ const Navigation = () => {
             {/* Mobile CTA Section */}
             <div className="pt-6 border-t border-border space-y-3 mobile-menu-item">
               <Button variant="ghost" className="w-full justify-start text-left font-medium">
-                Login
+                <a href="https://anatomia.entropyand.co" target="_blank" rel="noopener noreferrer" className="flex items-center">
+                  Live Demo
+                  <ExternalLink className="w-4 h-4 ml-1" />
+                </a>
               </Button>
               <Button className="w-full btn btn-primary font-semibold">
-                <a href="/demo" className="text-white">Get Demo</a>
+                <a href="/demo" className="text-white">Get Started</a>
               </Button>
             </div>
           </div>
