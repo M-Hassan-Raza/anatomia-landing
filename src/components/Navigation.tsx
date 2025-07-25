@@ -181,78 +181,78 @@ const Navigation = () => {
             </div>
           </button>
         </div>
+      </nav>
 
-        {/* Enhanced Mobile Menu */}
-        <div 
-          ref={mobileMenuRef}
-          className={`lg:hidden fixed inset-y-0 right-0 w-80 max-w-[90vw] bg-background border-l border-border shadow-anatomia-lg z-[9999] transform transition-transform duration-300 ease-in-out ${
-            isOpen ? 'translate-x-0' : 'translate-x-full'
-          }`}
-        >
-          <div className="p-6 space-y-6 h-full overflow-y-auto">
-            {/* Mobile Menu Header */}
-            <div className="flex items-center justify-between mobile-menu-item">
-              <div className="flex items-center space-x-3">
-                <div className="w-8 h-8 bg-gradient-primary rounded-lg flex items-center justify-center">
-                  <span className="text-white font-bold text-sm">A</span>
-                </div>
-                <span className="font-hero font-bold text-lg">Anatomia</span>
+      {/* Enhanced Mobile Menu - Moved outside nav to escape stacking context */}
+      <div 
+        ref={mobileMenuRef}
+        className={`lg:hidden fixed inset-y-0 right-0 w-80 max-w-[90vw] bg-background border-l border-border shadow-anatomia-lg z-[9999] transform transition-transform duration-300 ease-in-out ${
+          isOpen ? 'translate-x-0' : 'translate-x-full'
+        }`}
+      >
+        <div className="p-6 space-y-6 h-full overflow-y-auto">
+          {/* Mobile Menu Header */}
+          <div className="flex items-center justify-between mobile-menu-item">
+            <div className="flex items-center space-x-3">
+              <div className="w-8 h-8 bg-gradient-primary rounded-lg flex items-center justify-center">
+                <span className="text-white font-bold text-sm">A</span>
               </div>
-            </div>
-            
-            {/* Mobile Navigation Links */}
-            <div className="space-y-4">
-              <div className="mobile-menu-item">
-                <h3 className="font-semibold text-foreground mb-3">Product</h3>
-                <div className="space-y-2 ml-4">
-                  {productDropdownItems.map((item) => (
-                    <a key={item.name} href="#" className="block text-anatomia-gray-700 hover:text-primary transition-colors py-2">
-                      {item.name}
-                    </a>
-                  ))}
-                </div>
-              </div>
-              
-              <a href="/solutions" className="block text-lg text-anatomia-gray-700 hover:text-primary transition-colors mobile-menu-item">Solutions</a>
-              <a href="/pricing" className="block text-lg text-anatomia-gray-700 hover:text-primary transition-colors mobile-menu-item">Pricing</a>
-              
-              <div className="mobile-menu-item">
-                <h3 className="font-semibold text-foreground mb-3">Resources</h3>
-                <div className="space-y-2 ml-4">
-                  {resourcesDropdownItems.map((item) => (
-                    <a key={item.name} href={item.href} className="block text-anatomia-gray-700 hover:text-primary transition-colors py-2">
-                      {item.name}
-                    </a>
-                  ))}
-                </div>
-              </div>
-              
-              <a href="/company" className="block text-lg text-anatomia-gray-700 hover:text-primary transition-colors mobile-menu-item">Company</a>
-            </div>
-            
-            {/* Mobile CTA Section */}
-            <div className="pt-6 border-t border-border space-y-3 mobile-menu-item">
-              <Button variant="ghost" className="w-full justify-start text-left font-medium">
-                <a href="https://anatomia.entropyand.co" target="_blank" rel="noopener noreferrer" className="flex items-center">
-                  Live Demo
-                  <ExternalLink className="w-4 h-4 ml-1" />
-                </a>
-              </Button>
-              <Button className="w-full btn btn-primary font-semibold">
-                <a href="/demo" className="text-white">Get Started</a>
-              </Button>
+              <span className="font-hero font-bold text-lg">Anatomia</span>
             </div>
           </div>
+          
+          {/* Mobile Navigation Links */}
+          <div className="space-y-4">
+            <div className="mobile-menu-item">
+              <h3 className="font-semibold text-foreground mb-3">Product</h3>
+              <div className="space-y-2 ml-4">
+                {productDropdownItems.map((item) => (
+                  <a key={item.name} href="#" className="block text-anatomia-gray-700 hover:text-primary transition-colors py-2">
+                    {item.name}
+                  </a>
+                ))}
+              </div>
+            </div>
+            
+            <a href="/solutions" className="block text-lg text-anatomia-gray-700 hover:text-primary transition-colors mobile-menu-item">Solutions</a>
+            <a href="/pricing" className="block text-lg text-anatomia-gray-700 hover:text-primary transition-colors mobile-menu-item">Pricing</a>
+            
+            <div className="mobile-menu-item">
+              <h3 className="font-semibold text-foreground mb-3">Resources</h3>
+              <div className="space-y-2 ml-4">
+                {resourcesDropdownItems.map((item) => (
+                  <a key={item.name} href={item.href} className="block text-anatomia-gray-700 hover:text-primary transition-colors py-2">
+                    {item.name}
+                  </a>
+                ))}
+              </div>
+            </div>
+            
+            <a href="/company" className="block text-lg text-anatomia-gray-700 hover:text-primary transition-colors mobile-menu-item">Company</a>
+          </div>
+          
+          {/* Mobile CTA Section */}
+          <div className="pt-6 border-t border-border space-y-3 mobile-menu-item">
+            <Button variant="ghost" className="w-full justify-start text-left font-medium">
+              <a href="https://anatomia.entropyand.co" target="_blank" rel="noopener noreferrer" className="flex items-center">
+                Live Demo
+                <ExternalLink className="w-4 h-4 ml-1" />
+              </a>
+            </Button>
+            <Button className="w-full btn btn-primary font-semibold">
+              <a href="/demo" className="text-white">Get Started</a>
+            </Button>
+          </div>
         </div>
+      </div>
 
-        {/* Enhanced Mobile Menu Overlay */}
-        {isOpen && (
-          <div 
-            className="lg:hidden fixed inset-0 bg-black/50 backdrop-blur-sm z-[9998]"
-            onClick={() => setIsOpen(false)}
-          />
-        )}
-      </nav>
+      {/* Enhanced Mobile Menu Overlay */}
+      {isOpen && (
+        <div 
+          className="lg:hidden fixed inset-0 bg-black/50 backdrop-blur-sm z-[9998]"
+          onClick={() => setIsOpen(false)}
+        />
+      )}
     </>
   );
 };
