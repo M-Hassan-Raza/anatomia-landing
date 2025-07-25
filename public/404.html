@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Anatomia - Page Not Found</title>
+  <script>
+    // Redirect to the main page with the path as a hash
+    // This enables client-side routing to work on GitHub Pages
+    const path = window.location.pathname.slice(1);
+    if (path) {
+      window.location.replace(window.location.origin + '/#/' + path);
+    } else {
+      window.location.replace(window.location.origin + '/');
+    }
+  </script>
+</head>
+<body>
+  <div style="text-align: center; margin-top: 50px;">
+    <h1>Redirecting...</h1>
+    <p>If you are not redirected automatically, <a href="/">click here</a>.</p>
+  </div>
+</body>
+</html> 
