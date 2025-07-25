@@ -4,7 +4,7 @@ import path from "path";
 
 // https://vitejs.dev/config/
 export default defineConfig(() => ({
-  base: "/anatomia-design-blueprint/",
+  base: "/anatomia-landing/",
   server: {
     host: "::",
     port: 8080,
