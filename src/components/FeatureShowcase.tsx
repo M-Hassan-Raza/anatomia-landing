@@ -82,8 +82,8 @@ const FeatureShowcase = () => {
   };
 
   return (
-    <section className="py-20 bg-anatomia-gray-100/30">
-      <div className="container mx-auto px-6">
+    <section className="py-20 bg-anatomia-gray-100/30 overflow-hidden">
+      <div className="container mx-auto px-4 sm:px-6 max-w-full">
         <div className="animate-on-scroll text-center mb-16">
           <h2 className="font-display text-display-lg text-foreground mb-4">
             Built for Every Role in{' '}
@@ -96,27 +96,27 @@ const FeatureShowcase = () => {
         </div>
 
         {/* Tab Navigation */}
-        <div className="animate-on-scroll flex flex-col sm:flex-row justify-center mb-12">
-          <div className="inline-flex bg-background rounded-2xl p-2 shadow-anatomia-md border border-border">
+        <div className="animate-on-scroll flex justify-center mb-12 overflow-x-auto">
+          <div className="flex flex-col sm:flex-row bg-background rounded-2xl p-2 shadow-anatomia-md border border-border min-w-fit">
             {tabs.map((tab, index) => (
               <button
                 key={tab.id}
                 onClick={() => handleTabChange(index)}
-                className={`flex items-center space-x-3 px-6 py-4 rounded-xl transition-all duration-300 ${
+                className={`flex items-center justify-center space-x-2 sm:space-x-3 px-3 sm:px-6 py-3 sm:py-4 rounded-xl transition-all duration-300 whitespace-nowrap min-w-0 ${
                   activeTab === index
                     ? 'bg-primary text-primary-foreground shadow-anatomia-primary'
                     : 'text-anatomia-gray-700 hover:bg-anatomia-gray-100 hover:text-foreground'
                 }`}
               >
-                <tab.icon className="w-5 h-5" />
-                <span className="font-medium">{tab.title}</span>
+                <tab.icon className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0" />
+                <span className="font-medium text-sm sm:text-base">{tab.title}</span>
               </button>
             ))}
           </div>
         </div>
 
         {/* Tab Content */}
-        <div className="tab-content grid lg:grid-cols-2 gap-12 items-center">
+        <div className="tab-content grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           {/* Left Content */}
           <div className="space-y-8">
             <div className="space-y-4">
@@ -144,7 +144,7 @@ const FeatureShowcase = () => {
             </div>
 
             {/* CTA */}
-            <div className="flex flex-col sm:flex-row gap-4">
+            <div className="flex flex-col sm:flex-row gap-4 max-w-full">
               <Button className="btn btn-primary group">
                 <Play className="w-4 h-4 mr-2 group-hover:scale-110 transition-transform" />
                 {tabs[activeTab].demo}
@@ -157,7 +157,7 @@ const FeatureShowcase = () => {
           </div>
 
           {/* Right Content - Demo Preview */}
-          <div className="relative">
+          <div className="relative mx-4 sm:mx-0">
             <Card className="p-1 bg-gradient-primary">
               <div className="bg-background rounded-xl overflow-hidden">
                 <img 
@@ -167,14 +167,14 @@ const FeatureShowcase = () => {
                 />
                 
                 {/* Interactive Hotspots */}
-                <div className="absolute top-8 right-8">
-                  <div className="w-4 h-4 bg-anatomia-success rounded-full animate-pulse shadow-anatomia-glow">
+                <div className="absolute top-4 sm:top-8 right-4 sm:right-8">
+                  <div className="w-3 h-3 sm:w-4 sm:h-4 bg-anatomia-success rounded-full animate-pulse shadow-anatomia-glow">
                     <div className="absolute inset-0 bg-anatomia-success rounded-full animate-ping"></div>
                   </div>
                 </div>
                 
-                <div className="absolute bottom-8 left-8">
-                  <div className="w-4 h-4 bg-primary rounded-full animate-pulse shadow-anatomia-glow">
+                <div className="absolute bottom-4 sm:bottom-8 left-4 sm:left-8">
+                  <div className="w-3 h-3 sm:w-4 sm:h-4 bg-primary rounded-full animate-pulse shadow-anatomia-glow">
                     <div className="absolute inset-0 bg-primary rounded-full animate-ping"></div>
                   </div>
                 </div>
@@ -182,17 +182,17 @@ const FeatureShowcase = () => {
             </Card>
 
             {/* Floating Stats */}
-            <div className="absolute -top-4 -left-4 bg-background rounded-xl p-4 shadow-anatomia-lg border border-border">
+            <div className="absolute -top-2 sm:-top-4 left-2 sm:-left-4 bg-background rounded-lg sm:rounded-xl p-2 sm:p-4 shadow-anatomia-lg border border-border">
               <div className="text-center">
-                <div className="text-heading-sm font-bold text-primary">96%</div>
-                <div className="text-body-xs text-anatomia-gray-600">Accuracy</div>
+                <div className="text-sm sm:text-heading-sm font-bold text-primary">96%</div>
+                <div className="text-xs sm:text-body-xs text-anatomia-gray-600">Accuracy</div>
               </div>
             </div>
             
-            <div className="absolute -bottom-4 -right-4 bg-background rounded-xl p-4 shadow-anatomia-lg border border-border">
+            <div className="absolute -bottom-2 sm:-bottom-4 right-2 sm:-right-4 bg-background rounded-lg sm:rounded-xl p-2 sm:p-4 shadow-anatomia-lg border border-border">
               <div className="text-center">
-                <div className="text-heading-sm font-bold text-anatomia-success">-73%</div>
-                <div className="text-body-xs text-anatomia-gray-600">Time Saved</div>
+                <div className="text-sm sm:text-heading-sm font-bold text-anatomia-success">-73%</div>
+                <div className="text-xs sm:text-body-xs text-anatomia-gray-600">Time Saved</div>
               </div>
             </div>
           </div>
