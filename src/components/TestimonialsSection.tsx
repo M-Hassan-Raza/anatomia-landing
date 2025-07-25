@@ -64,8 +64,8 @@ const TestimonialsSection = () => {
   };
 
   return (
-    <section className="py-20 bg-anatomia-gray-50">
-      <div className="container mx-auto px-6">
+    <section className="py-20 bg-anatomia-gray-50 overflow-visible">
+      <div className="container mx-auto px-4 sm:px-6 max-w-full">
         {/* Header */}
         <div className="animate-on-scroll text-center mb-16">
           <Badge variant="secondary" className="mb-4">
@@ -83,17 +83,17 @@ const TestimonialsSection = () => {
 
         {/* Stats Bar */}
         <div className="animate-on-scroll mb-16">
-          <div className="flex flex-col sm:flex-row justify-center items-center gap-8 py-8 px-8 bg-white rounded-2xl shadow-anatomia-sm">
+          <div className="flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-8 py-6 sm:py-8 px-4 sm:px-8 bg-white rounded-2xl shadow-anatomia-sm">
             {stats.map((stat, index) => (
               <div key={index} className="text-center">
                 <div className="flex items-baseline justify-center space-x-1 mb-2">
                   <span 
-                    className="stat-number font-display text-2xl font-bold text-primary"
+                    className="stat-number font-display text-xl sm:text-2xl font-bold text-primary"
                     data-value={stat.value.replace(/[^0-9]/g, '')}
                   >
                     0
                   </span>
-                  <span className="text-lg font-semibold text-anatomia-gray-600">
+                  <span className="text-base sm:text-lg font-semibold text-anatomia-gray-600">
                     {stat.suffix}
                   </span>
                 </div>
@@ -106,9 +106,9 @@ const TestimonialsSection = () => {
         </div>
 
         {/* Testimonials Grid */}
-        <div className="stagger-list grid lg:grid-cols-3 gap-8 mb-16">
+        <div className="stagger-list grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-16 relative z-10">
           {testimonials.map((testimonial, index) => (
-            <Card key={index} className="stagger-item testimonial-card interactive-element bg-white">
+            <Card key={index} className="stagger-item testimonial-card bg-white border border-border shadow-anatomia-sm hover:shadow-anatomia-md transition-all duration-300 h-fit">
               <div className="space-y-6">
                 {/* Quote */}
                 <div className="relative">
@@ -133,7 +133,7 @@ const TestimonialsSection = () => {
                 {/* Author */}
                 <div className="border-t pt-6">
                   <div className="flex items-start space-x-4">
-                    <Avatar className="w-12 h-12">
+                    <Avatar className="w-12 h-12 flex-shrink-0">
                       <AvatarImage src={testimonial.avatar} alt={testimonial.author} />
                       <AvatarFallback>
                         {testimonial.author.split(' ').map(n => n[0]).join('')}
