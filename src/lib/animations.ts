@@ -639,7 +639,6 @@ export const initializeAnimations = () => {
   ScrollTrigger.refresh();
   
   // Initialize common animations
-  animationUtils.addMagneticEffect('.magnetic-btn');
   animationUtils.addParallaxEffect('.parallax-element');
   animationUtils.animateOnScroll('.animate-on-scroll', ANIMATION_PRESETS.fadeInUp);
   
@@ -647,13 +646,13 @@ export const initializeAnimations = () => {
   pageAnimations.navigation.init();
   pageAnimations.textEffects.init();
   
-  // Add button hover effects globally
-  const hoverElements = document.querySelectorAll('.btn, .card, .interactive-card');
-  if (hoverElements.length > 0) {
-    Array.from(hoverElements).forEach(element => {
-      animationUtils.createButtonHover(element);
-    });
-  }
+  // Disabled cursor-following hover effects
+  // const hoverElements = document.querySelectorAll('.btn, .card, .interactive-card');
+  // if (hoverElements.length > 0) {
+  //   Array.from(hoverElements).forEach(element => {
+  //     animationUtils.createButtonHover(element);
+  //   });
+  // }
   
   // Add floating animation to floating elements
   animationUtils.floatingAnimation('.floating-element');

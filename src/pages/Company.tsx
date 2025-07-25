@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { ArrowRight, Heart, Shield, Lightbulb, Users, Calendar, Award, Building2, Briefcase, MapPin, ExternalLink } from 'lucide-react';
+import { MovingBorderButton } from '@/components/ui/moving-border-button';
 import { AnimationProvider } from '@/components/gsap/AnimationContext';
 
 const Company = () => {
@@ -143,13 +144,13 @@ const Company = () => {
                 quality healthcare accessible to everyone through intelligent automation.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button className="btn-primary btn-lg magnetic-btn">
+                <MovingBorderButton variant="primary" size="lg">
                   Join Our Mission
-                  <ArrowRight className="w-5 h-5" />
-                </Button>
-                <Button variant="outline" className="btn-lg">
+                  <ArrowRight className="w-5 h-5 ml-2" />
+                </MovingBorderButton>
+                <MovingBorderButton variant="outline" size="lg">
                   Our Story
-                </Button>
+                </MovingBorderButton>
               </div>
             </div>
           </div>

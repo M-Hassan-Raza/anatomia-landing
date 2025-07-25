@@ -3,12 +3,12 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Play, Shield, Award, CheckCircle } from 'lucide-react';
 import { useGSAPAnimation } from './gsap/useGSAPAnimation';
+import { MovingBorderButton } from '@/components/ui/moving-border-button';
 import heroImage from '@/assets/hero-medical-ai.jpg';
 
 const HeroSection = () => {
   const { 
     animateHero, 
-    addMagneticEffect, 
     addFloatingElements,
     createRollingText,
     addGlitchEffect 
@@ -16,13 +16,12 @@ const HeroSection = () => {
 
   useEffect(() => {
     const timeline = animateHero();
-    addMagneticEffect();
     addFloatingElements();
     
     return () => {
       timeline.kill();
     };
-  }, [animateHero, addMagneticEffect, addFloatingElements]);
+  }, [animateHero, addFloatingElements]);
 
   const trustBadges = [
     { icon: Shield, text: "HIPAA Compliant" },
@@ -58,13 +57,13 @@ const HeroSection = () => {
 
             {/* CTAs */}
             <div className="hero-cta flex flex-col sm:flex-row gap-4">
-              <Button className="btn btn-primary btn-lg magnetic-btn group">
+              <MovingBorderButton variant="primary" size="lg" className="group">
                 <Play className="w-5 h-5 mr-2 group-hover:scale-110 transition-transform" />
                 Watch Demo (2 min)
-              </Button>
-              <Button variant="outline" className="btn btn-lg magnetic-btn border-2">
+              </MovingBorderButton>
+              <MovingBorderButton variant="outline" size="lg">
                 Start Free Trial
-              </Button>
+              </MovingBorderButton>
             </div>
 
             {/* Trust Badges */}

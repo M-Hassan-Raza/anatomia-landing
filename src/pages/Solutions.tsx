@@ -4,6 +4,7 @@ import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
+import { MovingBorderButton } from '@/components/ui/moving-border-button';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { useGSAPAnimation } from '@/components/gsap/useGSAPAnimation';
 import { 
@@ -107,10 +108,10 @@ const Solutions = () => {
                 From emergency departments to specialty clinics, Anatomia adapts to your workflow 
                 and improves patient outcomes through intelligent automation.
               </p>
-              <Button className="btn-primary btn-lg magnetic-btn">
+              <MovingBorderButton variant="primary" size="lg">
                 Explore Solutions
-                <ArrowRight className="w-5 h-5" />
-              </Button>
+                <ArrowRight className="w-5 h-5 ml-2" />
+              </MovingBorderButton>
             </div>
           </div>
         </section>
@@ -355,7 +356,7 @@ const Solutions = () => {
                 {solutions.map((solution, index) => {
                   const Icon = solution.icon;
                   return (
-                    <Card key={solution.title} className="p-6 feature-card interactive-card magnetic-btn animate-on-scroll floating-element">
+                    <Card key={solution.title} className="p-6 feature-card animate-on-scroll floating-element">
                       <div className={`w-12 h-12 rounded-xl ${solution.color} flex items-center justify-center mb-4 card-icon`}>
                         <Icon className="w-6 h-6" />
                       </div>
@@ -469,7 +470,7 @@ const Solutions = () => {
 
               <div className="grid lg:grid-cols-3 gap-8">
                 {useCases.map((useCase, index) => (
-                  <Card key={useCase.title} className="p-8 feature-card interactive-card magnetic-btn animate-on-scroll floating-element text-center hover:shadow-lg transition-all duration-300">
+                  <Card key={useCase.title} className="p-8 feature-card animate-on-scroll floating-element text-center hover:shadow-lg transition-all duration-300">
                     <div className="mb-6">
                       <div className="text-4xl font-bold text-primary mb-2">
                         {useCase.metrics.primary}

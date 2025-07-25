@@ -4,6 +4,7 @@ import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
+import { MovingBorderButton } from '@/components/ui/moving-border-button';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { Check, Star, Zap, Shield, Users, ArrowRight, Building2, Phone, Clock, DollarSign, Headphones, Lock } from 'lucide-react';
 import { AnimationProvider } from '@/components/gsap/AnimationContext';
@@ -132,7 +133,7 @@ const Pricing = () => {
                 return (
                   <Card 
                     key={plan.name}
-                    className={`pricing-card ${plan.popular ? 'featured' : ''} relative p-8 feature-card interactive-card magnetic-btn animate-on-scroll floating-element ${
+                    className={`pricing-card ${plan.popular ? 'featured' : ''} relative p-8 feature-card animate-on-scroll floating-element ${
                       plan.popular ? 'border-primary shadow-anatomia-primary' : ''
                     }`}
                     style={{ animationDelay: `${index * 0.1}s` }}
@@ -181,14 +182,13 @@ const Pricing = () => {
                       ))}
                     </div>
 
-                    <Button 
-                      className={`w-full magnetic-btn ${
-                        plan.popular ? 'btn-primary' : 'btn-secondary'
-                      }`}
+                    <MovingBorderButton 
+                      variant={plan.popular ? 'primary' : 'outline'}
                       size="lg"
+                      className="w-full"
                     >
                       {plan.cta}
-                    </Button>
+                    </MovingBorderButton>
                   </Card>
                 );
               })}

@@ -370,12 +370,14 @@
   }
 
   .interactive-card {
-    @apply transition-all duration-300 ease-out cursor-pointer;
+    @apply transition-all duration-300 ease-out;
   }
 
+  /* Disabled cursor-following hover effects
   .interactive-card:hover {
     @apply transform -translate-y-2 scale-105;
   }
+  */
 
   /* Magnetic button effect */
   .magnetic-btn {
