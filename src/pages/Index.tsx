@@ -14,7 +14,7 @@ import { AnimationProvider } from '@/components/gsap/AnimationContext';
 const Index = () => {
   return (
     <AnimationProvider>
-      <div className="min-h-screen bg-background">
+      <div className="min-h-screen bg-background overflow-x-hidden">
         <Navigation />
         <main>
           <HeroSection />

@@ -29,23 +29,17 @@ const Navigation = () => {
     }
   }, [gsap, TIMING]);
 
-  // Mobile menu animation
+  // Mobile menu animation - using CSS transitions instead of GSAP
   useEffect(() => {
-    if (mobileMenuRef.current) {
-      if (isOpen) {
-        gsap.fromTo(mobileMenuRef.current,
-          { x: '100%', opacity: 0 },
-          { x: '0%', opacity: 1, duration: TIMING.normal, ease: "power2.out" }
-        );
-        
-        // Animate menu items
-        gsap.fromTo(mobileMenuRef.current.querySelectorAll('.mobile-menu-item'),
-          { x: 50, opacity: 0 },
-          { x: 0, opacity: 1, duration: TIMING.normal, stagger: TIMING.stagger, delay: 0.1 }
-        );
-      }
+    if (mobileMenuRef.current && isOpen) {
+      // Animate menu items with staggered delays
+      const menuItems = mobileMenuRef.current.querySelectorAll('.mobile-menu-item');
+      menuItems.forEach((item, index) => {
+        (item as HTMLElement).style.animationDelay = `${index * 0.1}s`;
+        item.classList.add('animate-fade-in-up');
+      });
     }
-  }, [isOpen, gsap, TIMING]);
+  }, [isOpen]);
 
   const productDropdownItems = [
     { name: 'AI Triage System', desc: 'Smart patient call routing' },
@@ -191,8 +185,8 @@ const Navigation = () => {
         {/* Enhanced Mobile Menu */}
         <div 
           ref={mobileMenuRef}
-          className={`lg:hidden fixed inset-y-0 right-0 w-80 bg-background border-l border-border shadow-anatomia-lg z-50 ${
-            isOpen ? 'block' : 'hidden'
+          className={`lg:hidden fixed inset-y-0 right-0 w-80 max-w-[90vw] bg-background border-l border-border shadow-anatomia-lg z-[9999] transform transition-transform duration-300 ease-in-out ${
+            isOpen ? 'translate-x-0' : 'translate-x-full'
           }`}
         >
           <div className="p-6 space-y-6 h-full overflow-y-auto">
@@ -254,7 +248,7 @@ const Navigation = () => {
         {/* Enhanced Mobile Menu Overlay */}
         {isOpen && (
           <div 
-            className="lg:hidden fixed inset-0 bg-black/50 backdrop-blur-sm z-40"
+            className="lg:hidden fixed inset-0 bg-black/50 backdrop-blur-sm z-[9998]"
             onClick={() => setIsOpen(false)}
           />
         )}

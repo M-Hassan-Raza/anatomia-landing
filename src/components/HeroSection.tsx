@@ -30,12 +30,12 @@ const HeroSection = () => {
   ];
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden w-full max-w-full">
       {/* Animated mesh gradient background */}
       <div className="absolute inset-0 gradient-mesh opacity-30" />
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/50 to-background" />
       
-      <div className="container mx-auto px-6 pt-24 pb-16 relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 pt-24 pb-16 relative z-10 max-w-full">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left Content */}
           <div className="space-y-8">
@@ -111,11 +111,11 @@ const HeroSection = () => {
               </div>
 
               {/* Additional floating elements - more subtle */}
-              <div className="absolute top-1/2 -left-8 bg-primary/5 backdrop-blur-sm rounded-full p-3 shadow-anatomia-sm">
+              <div className="absolute top-1/2 left-2 sm:-left-8 bg-primary/5 backdrop-blur-sm rounded-full p-3 shadow-anatomia-sm">
                 <div className="w-4 h-4 bg-primary/30 rounded-full"></div>
               </div>
 
-              <div className="absolute top-1/4 -right-8 bg-anatomia-success/5 backdrop-blur-sm rounded-xl p-3 shadow-anatomia-sm">
+              <div className="absolute top-1/4 right-2 sm:-right-8 bg-anatomia-success/5 backdrop-blur-sm rounded-xl p-3 shadow-anatomia-sm">
                 <div className="text-xs font-bold text-anatomia-success">+127%</div>
                 <div className="text-xs text-anatomia-gray-600">Efficiency</div>
               </div>
