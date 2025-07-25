@@ -70,7 +70,7 @@ const Navigation = () => {
       }`}>
         <div className="container mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
           {/* Enhanced Logo */}
-          <div ref={logoRef} className="flex items-center space-x-3">
+          <a href="/" ref={logoRef} className="flex items-center space-x-3 hover:opacity-80 transition-opacity">
             <div className="relative w-10 h-10 bg-gradient-primary rounded-xl flex items-center justify-center shadow-anatomia-primary group">
               <span className="text-white font-bold text-lg group-hover:scale-110 transition-transform">A</span>
               <div className="absolute inset-0 bg-white/20 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
@@ -78,7 +78,7 @@ const Navigation = () => {
             <span className="font-hero font-bold text-xl text-foreground tracking-tight">
               Anatomia
             </span>
-          </div>
+          </a>
 
           {/* Enhanced Desktop Navigation */}
           <div className="hidden lg:flex items-center space-x-8">

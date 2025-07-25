@@ -43,7 +43,7 @@ const HeroSection = () => {
             <div className="space-y-6">
               <h1 className="hero-headline font-display text-display-xl lg:text-display-2xl text-foreground leading-tight">
                 Transform Patient Calls into{' '}
-                <span className="bg-gradient-primary bg-clip-text text-transparent">
+                <span className="gradient-primary bg-clip-text text-transparent">
                   Actionable Clinical Intelligence
                 </span>
               </h1>
